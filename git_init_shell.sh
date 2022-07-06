@@ -1,0 +1,9 @@
+torch README.md
+torch .gitignore
+echo ".git_init_shell.sh\n.gitignore" >> .gitignore
+git init
+git add README.md
+git add .
+git commit -m "初始化"
+git remote add origin git@github.com:YiyaoZhang9527/my_alias_files.git
+git push -u origin master
