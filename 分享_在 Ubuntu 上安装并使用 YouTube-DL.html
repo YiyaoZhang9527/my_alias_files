@@ -1,0 +1,548 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0036)https://linux.cn/article-9244-1.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>分享|在 Ubuntu 上安装并使用 YouTube-DL</title>
+ 
+<meta name="keywords" content="在 Ubuntu 上安装并使用 YouTube-DL">
+<meta name="description" content="Youtube-dl 是一个自由开源的命令行视频下载工具，可以用来从 Youtube 等类似的网站上下载视频，目前它支持的网站除了 Youtube 还有 Facebook、Dailymotion、Google Video、Yahoo 等等。 ">
+<meta name="copyright" content="2005-2019 Linux.cn">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="applicable-device" content="pc,mobile">
+<meta name="referrer" content="always">
+<!--<base href="https://linux.cn/">--><base href="."><link rel="stylesheet" type="text/css" href="./分享_在 Ubuntu 上安装并使用 YouTube-DL_files/style_1_common.css">
+<link rel="stylesheet" type="text/css" href="./分享_在 Ubuntu 上安装并使用 YouTube-DL_files/style_1_portal_view.css">
+<link href="./分享_在 Ubuntu 上安装并使用 YouTube-DL_files/responsive.css" rel="stylesheet">
+
+<script type="text/javascript">var STYLEID = '1', STATICURL = 'https://img.linux.net.cn/static/', IMGDIR = 'https://img.linux.net.cn/static/image/common', VERHASH = 'Eps', charset = 'utf-8', discuz_uid = '0', cookiepre = 'dx_516d_', cookiedomain = '.linux.cn', cookiepath = '/', showusercard = '1', attackevasive = '0', disallowfloat = '', creditnotice = '1|经验|,2|L币|,3|贡献|', defaultstyle = '', REPORTURL = 'aHR0cDovL2xpbnV4LmNuL2FydGljbGUtOTI0NC0xLmh0bWw=', SITEURL = 'https://linux.cn/', JSPATH = 'https://img.linux.net.cn/static/js/', CSSPATH = 'data/cache/style_', DYNAMICURL = '';</script>
+<script src="./分享_在 Ubuntu 上安装并使用 YouTube-DL_files/common.js" type="text/javascript"></script>
+<script src="./分享_在 Ubuntu 上安装并使用 YouTube-DL_files/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script type="text/javascript">jQuery.noConflict();</script>
+<script src="./分享_在 Ubuntu 上安装并使用 YouTube-DL_files/jquery.plugins.js" type="text/javascript"></script>
+<script src="./分享_在 Ubuntu 上安装并使用 YouTube-DL_files/bootstrap.min.js" type="text/javascript"></script>
+<link rel="alternate" type="application/rss+xml" title="Linux 中国◆开源社区 RSS" href="https://linux.cn/rss.xml">
+<link rel="shortcut icon" href="https://img.linux.net.cn/favicon.ico" sizes="32x32">
+<link rel="canonical" href="https://linux.cn/article-9244-1.html">
+<script src="./分享_在 Ubuntu 上安装并使用 YouTube-DL_files/portal.js" type="text/javascript"></script>
+<script type="text/javascript" id="lEokdkhfmflTrqgmBMKDDMJjYjljdhYY" charset="UTF-8" src="./分享_在 Ubuntu 上安装并使用 YouTube-DL_files/common_extra.js"></script><style>.v2-x-web-address{display:flex !important;align-items:center !important;border:1px #eee solid !important;padding:0 4px !important;background-color:#fff !important;position:fixed !important;left:10px !important;bottom:10px !important;z-index:999999 !important;font-size:14px !important;border-radius:3px !important;height:30px !important;margin:0 !important;line-height:30px !important}.v2-x-web-address__ip{flex:none !important;margin:0 6px 0 0 !important;padding:0 !important;font-size:14px !important;text-decoration:none !important;color:blue !important;border:0 !important}.v2-x-web-address__ip:hover{color:red !important}.v2-x-web-address__code{margin:0 6px 0 0 !important;padding:0 !important;font-size:14px !important;text-decoration:none !important;border:0 !important;height:22px !important;width:22px !important;background:none !important}.v2-x-web-address__close{cursor:pointer !important;font-size:14px !important;border:0 !important;height:18px !important;width:18px !important;background:none !important;margin:0 !important;padding:0 !important}
+</style><script type="text/javascript" id="seccodejs_cSPjMyJw" src="./分享_在 Ubuntu 上安装并使用 YouTube-DL_files/misc.php"></script></head>
+
+<body id="nv_portal" class="pg_view" onkeydown="if(event.keyCode==27) return false;" style="">
+<div id="append_parent"></div><div id="ajaxwaitid"></div>
+<div id="hd">
+<div class="wp" style="box-shadow: 1px 1px 2px #666;">
+<h1 id="linuxcn_logo"><a href="https://linux.cn/" title="Linux.中国 - 开源社区"></a><style type="text/css">@-webkit-keyframes spin{100%{-webkit-transform:rotate(360deg);}}@keyframes spin{100%{transform:rotate(360deg);}}</style></h1>
+<div class="p_pop h_pop" id="mn_userapp_menu" style="display: none"></div><div id="topmenu_wrapper" style="height: 33px;">
+<div id="topmenu" class="affix-top">
+<div id="nv">
+<ul><li id="mn_N6666"><a href="https://linux.cn/" hidefocus="true" style="font-weight: bold;">Linux 中国</a></li><li id="mn_P3" onmouseover="navShow(&#39;P3&#39;)"><a href="https://linux.cn/tech/" hidefocus="true" style="color: #FFFAE5;">技术</a></li><li id="mn_P1" onmouseover="navShow(&#39;P1&#39;)"><a href="https://linux.cn/news/" hidefocus="true" style="color: #FFFAE5;">新闻</a></li><li id="mn_P4" onmouseover="navShow(&#39;P4&#39;)"><a href="https://linux.cn/talk/" hidefocus="true" style="color: #FFFAE5;">观点</a></li><li id="mn_P8" onmouseover="navShow(&#39;P8&#39;)"><a href="https://linux.cn/share/" hidefocus="true" style="color: #FFFAE5;">分享</a></li><li id="mn_N1fa1"><a href="https://linux.cn/lctt/" hidefocus="true" target="_blank">LCTT</a></li></ul>
+</div>
+<div id="mu" class="cl">
+<ul class="cl " id="snav_mn_P3" style="display:none;">
+<li><a href="https://linux.cn/tech/desktop/" hidefocus="true">桌面应用</a></li><li><a href="https://linux.cn/tech/sa/" hidefocus="true">系统运维</a></li><li><a href="https://linux.cn/tech/program/" hidefocus="true">软件开发</a></li><li><a href="https://linux.cn/tech/raspberrypi/" hidefocus="true">树莓派</a></li><li><a href="https://linux.cn/tech/container/" hidefocus="true">容器与云</a></li><li><a href="https://linux.cn/portal.php?mod=list&amp;catid=27" hidefocus="true">区块链</a></li></ul>
+<ul class="cl " id="snav_mn_P1" style="display:none;">
+<li><a href="https://linux.cn/news/express/" hidefocus="true">硬核观察</a></li></ul>
+<ul class="cl " id="snav_mn_P4" style="display:none;">
+<li><a href="https://linux.cn/talk/comic/" hidefocus="true">极客漫画</a></li><li><a href="https://linux.cn/talk/ossip/" hidefocus="true">开源智慧</a></li><li><a href="https://linux.cn/talk/interview/" hidefocus="true">穿山甲专访</a></li><li><a href="https://linux.cn/talk/ocselected/" hidefocus="true">开源之道</a></li><li><a href="https://linux.cn/talk/clh/" hidefocus="true">代码英雄</a></li></ul>
+<ul class="cl " id="snav_mn_P8" style="display:none;">
+<li><a href="https://linux.cn/share/distro/" hidefocus="true">Linux 发行版</a></li></ul>
+<ul class="cl " id="snav_mn_userapp" style="display:none;">
+</ul>
+</div>
+</div>
+</div>
+<div id="scbar" class="cl">
+<form id="scbar_form" method="post" autocomplete="off" onsubmit="searchFocus($(&#39;scbar_txt&#39;))" action="https://linux.cn/search.php?searchsubmit=yes" target="_blank">
+<input type="hidden" name="mod" id="scbar_mod" value="article">
+<input type="hidden" name="formhash" value="0093daf4">
+<input type="hidden" name="srchtype" value="title">
+<input type="hidden" name="srhfid" value="0">
+<input type="hidden" name="srhlocality" value="portal::view">
+<table id="scbar_table" cellspacing="0" cellpadding="0" style="float:right;">
+<tbody><tr>
+<td class="scbar_icon_td"></td>
+<td class="scbar_txt_td"><input type="text" name="srchtxt" id="scbar_txt" value="请注册后再搜索" autocomplete="off" speech="" class=" xg1" placeholder="请注册后再搜索"></td>
+<td class="scbar_type_td"><a href="javascript:;" id="scbar_type" class="xg1" onclick="showMenu(this.id)" hidefocus="true">文章</a></td>
+<td class="scbar_btn_td"><button type="submit" name="searchsubmit" id="scbar_btn" sc="1" class="pn pnc" value="true"><strong class="xi2">搜索</strong></button></td>
+<td class="scbar_hot_td">
+<div id="scbar_hot">
+</div>
+</td>
+</tr>
+</tbody></table>
+</form>
+<span class="z titletext" style="padding: 0 10px 0 20px;">❏ 站外平台：</span>
+<ul class="cl mutag z">
+<li><a class="hidefocus tsina" hidefocus="true" href="https://weibo.com/linuxcn" target="_blank" title="微博认证号：Linux中国"></a></li>
+<li><a class="hidefocus tticon" hidefocus="true" href="https://www.toutiao.com/c/user/52889878622/" target="_blank" title="今日头条：Linux中国"></a></li>
+<li><a class="hidefocus tticon" hidefocus="true" href="http://www.toutiao.com/c/user/3357852467/" target="_blank" title="今日头条：Linux技术"></a></li>
+<li><a class="hidefocus wyicon" hidefocus="true" href="http://dy.163.com/v2/article/detail/D282EJLD0511CPOJ.html" target="_blank" title="网易号：Linux"></a></li>
+<li><a class="hidefocus fbicon" hidefocus="true" href="https://www.facebook.com/linux.china/" target="_blank" title="Facebook Page：Linux中国"></a></li>
+<li><a class="hidefocus zhicon" hidefocus="true" href="https://www.zhihu.com/org/linuxzhong-guo/" target="_blank" title="知乎机构号：Linux中国"></a></li>
+<li><a class="hidefocus twicon" hidefocus="true" href="https://twitter.com/linux_cn" target="_blank" title="Twitter：Linux中国"></a></li>
+<li><a class="hidefocus tgicon" hidefocus="true" href="https://t.me/linuxdotcn" target="_blank" title="Telegram Channel：Linux中国"></a></li>
+</ul>
+    <form><label class="y" style="border: 1px solid #DDD;line-height: 24px;margin: 8px;padding: 2px 6px;background-color: #FFF;"><input type="checkbox" id="textmode" value="1" style="vertical-align:middle;"> 文本模式</label></form>
+
+</div>
+<br class="clear">
+<ul id="scbar_type_menu" class="p_pop" style="display: none;"><li><a href="javascript:;" rel="article" class="curtype">文章</a></li></ul>
+<script type="text/javascript">
+initSearchmenu('scbar', '');
+(function($){
+$(window).load(function() {
+if ($.cookie("textmode") == "1") {
+$("body").addClass("textmode");
+$("#textmode").attr("checked","checked");
+}
+$("#textmode").click(function(){
+if ($("#textmode").is(':checked')) {
+$("body").addClass("textmode");
+$.cookie("textmode", "1", { expires : 90 });
+} else {
+$("body").removeClass("textmode");
+$.cookie("textmode", "0", { expires : 90 });
+}
+})
+});
+})(jQuery);
+</script>
+<script type="text/javascript">
+(function($){
+$(window).load(function() {
+$("#topmenu").affix({offset : {
+top : $("#topmenu").offset().top,
+bottom: 218}});
+$('#topmenu_wrapper').height($("#topmenu").height());
+$("#topmenu").on('affixed.bs.affix',function() {
+if ($('#linuxcn_logo').is(':visible')) {
+$('#mn_N6666').css({'display': 'block','width': '179px'});
+$('#mn_N6666 a').css({'padding': '0 45px'});
+$(this).css({'padding-left': 0,'width':'1200px'});
+}
+});
+$("#topmenu").on('affixed-top.bs.affix',function() {
+if ($('#linuxcn_logo').is(':visible')) {
+$('#mn_N6666').css({'display': 'none'});
+$(this).css({'padding-left': '180px','width': '1020px'});
+}
+});
+})
+})(jQuery);
+</script>
+
+</div>
+</div>
+<div id="wp" class="wp">
+
+<style type="text/css">
+#nv_portal .vw .h.hm {background: #FFF url(https://img.linux.net.cn/data/attachment/album/201801/15/231045b3y531loom513ot1.jpg); border-radius: 0;background-size: cover; background-position: center; height: 640px;position: relative;padding: 10px; margin-bottom: 0; }
+#nv_portal .vw .h.hm h1 {background-color: rgba(33,33,33,0.8); border-radius: 0;position: absolute;margin: 10px 20px 20px 20px;padding: 15px 10px;bottom: 0;width: 90%; }
+#nv_portal .vw .d table {margin: 0 auto;}
+</style>
+<div style="margin: 2px 0;"></div>
+<div id="ct" class="ct2 wp cl">
+<div class="mn">
+<article class="vw">
+<div class="h hm bm" style="margin-top: 0;">
+<h1 class="ph" id="article_title">在 Ubuntu 上安装并使用 YouTube-DL </h1>
+</div>
+
+<div class="d" style="width: 100%;margin: 0;">
+<div id="article_content" style="border-radius:0;">
+<div class="ph" id="article_copyright">
+<span>作者： 
+    	 
+    		    			<span class="textcut"><a href="https://www.howtoforge.com/tutorial/install-and-use-youtube-dl-on-ubuntu-1604/" target="_blank" class="ext" rel="external nofollow">Hitesh Jethva</a></span>
+    		    	    	<span>译者： 
+<a href="https://linux.cn/lctt/" target="_blank">LCTT</a>&nbsp;<a href="https://linux.cn/lctt/lujun9972" target="_blank" class="ext" rel="external nofollow">DarkSun</a></span>
+<p id="article_date">
+| 2018-01-16 09:06&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+</p>
+</span></div>
+
+<p>Youtube-dl 是一个自由开源的命令行视频下载工具，可以用来从 Youtube 等类似的网站上下载视频，目前它支持的网站除了 Youtube 还有 Facebook、Dailymotion、Google Video、Yahoo 等等。它构架于 pygtk 之上，需要 Python 的支持来运行。它支持很多操作系统，包括 Windows、Mac 以及 Unix。Youtube-dl 还有断点续传、下载整个频道或者整个播放清单中的视频、添加自定义的标题、代理等等其他功能。</p>
+<p>本文中，我们将来学习如何在 Ubuntu 16.04 上安装并使用 Youtube-dl 和 Youtube-dlg。我们还会学习如何以不同质量，不同格式来下载 Youtube 中的视频。</p>
+<h3 id="toc_1">前置需求</h3>
+<ul>
+<li>一台运行 Ubuntu 16.04 的服务器。</li>
+<li>非 root 用户但拥有 sudo 特权。</li>
+</ul>
+<p>让我们首先用下面命令升级系统到最新版：</p>
+<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="kwd">sudo</span><span class="pln"> </span><span class="kwd">apt-get</span><span class="pln"> update </span><span class="pun">-</span><span class="pln">y</span></code></li><li class="L1"><code><span class="kwd">sudo</span><span class="pln"> </span><span class="kwd">apt-get</span><span class="pln"> upgrade </span><span class="pun">-</span><span class="pln">y</span></code></li></ol></pre>
+<p>然后重启系统应用这些变更。</p>
+<h3 id="toc_2">安装 Youtube-dl</h3>
+<p>默认情况下，Youtube-dl 并不在 Ubuntu-16.04 仓库中。你需要从官网上来下载它。使用 <code>curl</code> 命令可以进行下载：</p>
+<p>首先，使用下面命令安装 <code>curl</code>：</p>
+<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="kwd">sudo</span><span class="pln"> </span><span class="kwd">apt-get</span><span class="pln"> install curl </span><span class="pun">-</span><span class="pln">y</span></code></li></ol></pre>
+<p>然后，下载 <code>youtube-dl</code> 的二进制包：</p>
+<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="pln">curl </span><span class="pun">-</span><span class="pln">L https</span><span class="pun">:</span><span class="com">//yt-dl.org/latest/youtube-dl -o /usr/bin/youtube-dl</span></code></li></ol></pre>
+<p>接着，用下面命令更改 <code>youtube-dl</code> 二进制包的权限：</p>
+<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="kwd">sudo</span><span class="pln"> </span><span class="kwd">chmod</span><span class="pln"> </span><span class="lit">755</span><span class="pln"> </span><span class="pun">/</span><span class="pln">usr</span><span class="pun">/</span><span class="pln">bin</span><span class="pun">/</span><span class="pln">youtube</span><span class="pun">-</span><span class="pln">dl</span></code></li></ol></pre>
+<p><code>youtube-dl</code> 算是安装好了，现在可以进行下一步了。</p>
+<h3 id="toc_3">使用 Youtube-dl</h3>
+<p>运行下面命令会列出 <code>youtube-dl</code> 的所有可选项：</p>
+<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="pln">youtube</span><span class="pun">-</span><span class="pln">dl </span><span class="pun">--</span><span class="pln">h</span></code></li></ol></pre>
+<p><code>youtube-dl</code> 支持多种视频格式，像 Mp4，WebM，3gp，以及 FLV 都支持。你可以使用下面命令列出指定视频所支持的所有格式：</p>
+<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="pln">youtube</span><span class="pun">-</span><span class="pln">dl </span><span class="pun">-</span><span class="pln">F https</span><span class="pun">:</span><span class="com">//www.youtube.com/watch?v=j_JgXJ-apXs</span></code></li></ol></pre>
+<p>如下所示，你会看到该视频所有可能的格式：</p>
+<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="pun">[</span><span class="kwd">info</span><span class="pun">]</span><span class="pln"> </span><span class="typ">Available</span><span class="pln"> formats </span><span class="kwd">for</span><span class="pln"> j_JgXJ</span><span class="pun">-</span><span class="pln">apXs</span><span class="pun">:</span></code></li><li class="L1"><code><span class="pln">format code  extension  resolution note</span></code></li><li class="L2"><code><span class="lit">139</span><span class="pln">          m4a        audio only DASH audio   </span><span class="lit">56k</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> m4a_dash container</span><span class="pun">,</span><span class="pln"> mp4a</span><span class="pun">.</span><span class="lit">40.5</span><span class="pun">@</span><span class="pln"> </span><span class="lit">48k</span><span class="pln"> </span><span class="pun">(</span><span class="lit">22050Hz</span><span class="pun">),</span><span class="pln"> </span><span class="lit">756.44KiB</span></code></li><li class="L3"><code><span class="lit">249</span><span class="pln">          webm       audio only DASH audio   </span><span class="lit">56k</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> opus </span><span class="pun">@</span><span class="pln"> </span><span class="lit">50k</span><span class="pun">,</span><span class="pln"> </span><span class="lit">724.28KiB</span></code></li><li class="L4"><code><span class="lit">250</span><span class="pln">          webm       audio only DASH audio   </span><span class="lit">69k</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> opus </span><span class="pun">@</span><span class="pln"> </span><span class="lit">70k</span><span class="pun">,</span><span class="pln"> </span><span class="lit">902.75KiB</span></code></li><li class="L5"><code><span class="lit">171</span><span class="pln">          webm       audio only DASH audio  </span><span class="lit">110k</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> vorbis@128k</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1.32MiB</span></code></li><li class="L6"><code><span class="lit">251</span><span class="pln">          webm       audio only DASH audio  </span><span class="lit">122k</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> opus </span><span class="pun">@</span><span class="lit">160k</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1.57MiB</span></code></li><li class="L7"><code><span class="lit">140</span><span class="pln">          m4a        audio only DASH audio  </span><span class="lit">146k</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> m4a_dash container</span><span class="pun">,</span><span class="pln"> mp4a</span><span class="pun">.</span><span class="lit">40.2</span><span class="pun">@</span><span class="lit">128k</span><span class="pln"> </span><span class="pun">(</span><span class="lit">44100Hz</span><span class="pun">),</span><span class="pln"> </span><span class="lit">1.97MiB</span></code></li><li class="L8"><code><span class="lit">278</span><span class="pln">          webm       </span><span class="lit">256x144</span><span class="pln">    </span><span class="lit">144p</span><span class="pln">   </span><span class="lit">97k</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> webm container</span><span class="pun">,</span><span class="pln"> vp9</span><span class="pun">,</span><span class="pln"> </span><span class="lit">24fps</span><span class="pun">,</span><span class="pln"> video only</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1.33MiB</span></code></li><li class="L9"><code><span class="lit">160</span><span class="pln">          mp4        </span><span class="lit">256x144</span><span class="pln">    DASH video  </span><span class="lit">102k</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> avc1</span><span class="pun">.</span><span class="lit">4d400c</span><span class="pun">,</span><span class="pln"> </span><span class="lit">24fps</span><span class="pun">,</span><span class="pln"> video only</span><span class="pun">,</span><span class="pln"> </span><span class="lit">731.53KiB</span></code></li><li class="L0"><code><span class="lit">133</span><span class="pln">          mp4        </span><span class="lit">426x240</span><span class="pln">    DASH video  </span><span class="lit">174k</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> avc1</span><span class="pun">.</span><span class="lit">4d4015</span><span class="pun">,</span><span class="pln"> </span><span class="lit">24fps</span><span class="pun">,</span><span class="pln"> video only</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1.36MiB</span></code></li><li class="L1"><code><span class="lit">242</span><span class="pln">          webm       </span><span class="lit">426x240</span><span class="pln">    </span><span class="lit">240p</span><span class="pln">  </span><span class="lit">221k</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> vp9</span><span class="pun">,</span><span class="pln"> </span><span class="lit">24fps</span><span class="pun">,</span><span class="pln"> video only</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1.74MiB</span></code></li><li class="L2"><code><span class="lit">134</span><span class="pln">          mp4        </span><span class="lit">640x360</span><span class="pln">    DASH video  </span><span class="lit">369k</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> avc1</span><span class="pun">.</span><span class="lit">4d401e</span><span class="pun">,</span><span class="pln"> </span><span class="lit">24fps</span><span class="pun">,</span><span class="pln"> video only</span><span class="pun">,</span><span class="pln"> </span><span class="lit">2.90MiB</span></code></li><li class="L3"><code><span class="lit">243</span><span class="pln">          webm       </span><span class="lit">640x360</span><span class="pln">    </span><span class="lit">360p</span><span class="pln">  </span><span class="lit">500k</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> vp9</span><span class="pun">,</span><span class="pln"> </span><span class="lit">24fps</span><span class="pun">,</span><span class="pln"> video only</span><span class="pun">,</span><span class="pln"> </span><span class="lit">4.15MiB</span></code></li><li class="L4"><code><span class="lit">135</span><span class="pln">          mp4        </span><span class="lit">854x480</span><span class="pln">    DASH video  </span><span class="lit">746k</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> avc1</span><span class="pun">.</span><span class="lit">4d401e</span><span class="pun">,</span><span class="pln"> </span><span class="lit">24fps</span><span class="pun">,</span><span class="pln"> video only</span><span class="pun">,</span><span class="pln"> </span><span class="lit">6.11MiB</span></code></li><li class="L5"><code><span class="lit">244</span><span class="pln">          webm       </span><span class="lit">854x480</span><span class="pln">    </span><span class="lit">480p</span><span class="pln">  </span><span class="lit">844k</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> vp9</span><span class="pun">,</span><span class="pln"> </span><span class="lit">24fps</span><span class="pun">,</span><span class="pln"> video only</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7.27MiB</span></code></li><li class="L6"><code><span class="lit">247</span><span class="pln">          webm       </span><span class="lit">1280x720</span><span class="pln">   </span><span class="lit">720p</span><span class="pln"> </span><span class="lit">1155k</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> vp9</span><span class="pun">,</span><span class="pln"> </span><span class="lit">24fps</span><span class="pun">,</span><span class="pln"> video only</span><span class="pun">,</span><span class="pln"> </span><span class="lit">9.21MiB</span></code></li><li class="L7"><code><span class="lit">136</span><span class="pln">          mp4        </span><span class="lit">1280x720</span><span class="pln">   DASH video </span><span class="lit">1300k</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> avc1</span><span class="pun">.</span><span class="lit">4d401f</span><span class="pun">,</span><span class="pln"> </span><span class="lit">24fps</span><span class="pun">,</span><span class="pln"> video only</span><span class="pun">,</span><span class="pln"> </span><span class="lit">9.66MiB</span></code></li><li class="L8"><code><span class="lit">248</span><span class="pln">          webm       </span><span class="lit">1920x1080</span><span class="pln">  </span><span class="lit">1080p</span><span class="pln"> </span><span class="lit">1732k</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> vp9</span><span class="pun">,</span><span class="pln"> </span><span class="lit">24fps</span><span class="pun">,</span><span class="pln"> video only</span><span class="pun">,</span><span class="pln"> </span><span class="lit">14.24MiB</span></code></li><li class="L9"><code><span class="lit">137</span><span class="pln">          mp4        </span><span class="lit">1920x1080</span><span class="pln">  DASH video </span><span class="lit">2217k</span><span class="pln"> </span><span class="pun">,</span><span class="pln"> avc1</span><span class="pun">.</span><span class="lit">640028</span><span class="pun">,</span><span class="pln"> </span><span class="lit">24fps</span><span class="pun">,</span><span class="pln"> video only</span><span class="pun">,</span><span class="pln"> </span><span class="lit">15.28MiB</span></code></li><li class="L0"><code><span class="lit">17</span><span class="pln">           </span><span class="lit">3gp</span><span class="pln">        </span><span class="lit">176x144</span><span class="pln">    small </span><span class="pun">,</span><span class="pln"> mp4v</span><span class="pun">.</span><span class="lit">20.3</span><span class="pun">,</span><span class="pln"> mp4a</span><span class="pun">.</span><span class="lit">40.2</span><span class="pun">@</span><span class="pln"> </span><span class="lit">24k</span></code></li><li class="L1"><code><span class="lit">36</span><span class="pln">           </span><span class="lit">3gp</span><span class="pln">        </span><span class="lit">320x180</span><span class="pln">    small </span><span class="pun">,</span><span class="pln"> mp4v</span><span class="pun">.</span><span class="lit">20.3</span><span class="pun">,</span><span class="pln"> mp4a</span><span class="pun">.</span><span class="lit">40.2</span></code></li><li class="L2"><code><span class="lit">43</span><span class="pln">           webm       </span><span class="lit">640x360</span><span class="pln">    medium </span><span class="pun">,</span><span class="pln"> vp8</span><span class="pun">.</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> vorbis@128k</span></code></li><li class="L3"><code><span class="lit">18</span><span class="pln">           mp4        </span><span class="lit">640x360</span><span class="pln">    medium </span><span class="pun">,</span><span class="pln"> avc1</span><span class="pun">.</span><span class="lit">42001E</span><span class="pun">,</span><span class="pln"> mp4a</span><span class="pun">.</span><span class="lit">40.2</span><span class="pun">@</span><span class="pln"> </span><span class="lit">96k</span></code></li><li class="L4"><code><span class="lit">22</span><span class="pln">           mp4        </span><span class="lit">1280x720</span><span class="pln">   hd720 </span><span class="pun">,</span><span class="pln"> avc1</span><span class="pun">.</span><span class="lit">64001F</span><span class="pun">,</span><span class="pln"> mp4a</span><span class="pun">.</span><span class="lit">40.2</span><span class="pun">@</span><span class="lit">192k</span><span class="pln"> </span><span class="pun">(</span><span class="pln">best</span><span class="pun">)</span></code></li></ol></pre>
+<p>然后使用 <code>-f</code> 指定你想要下载的格式，如下所示：</p>
+<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="pln">youtube</span><span class="pun">-</span><span class="pln">dl </span><span class="pun">-</span><span class="pln">f </span><span class="lit">18</span><span class="pln"> https</span><span class="pun">:</span><span class="com">//www.youtube.com/watch?v=j_JgXJ-apXs</span></code></li></ol></pre>
+<p>该命令会下载 640x360 分辨率的 mp4 格式的视频：</p>
+<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="pun">[</span><span class="pln">youtube</span><span class="pun">]</span><span class="pln"> j_JgXJ</span><span class="pun">-</span><span class="pln">apXs</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Downloading</span><span class="pln"> webpage</span></code></li><li class="L1"><code><span class="pun">[</span><span class="pln">youtube</span><span class="pun">]</span><span class="pln"> j_JgXJ</span><span class="pun">-</span><span class="pln">apXs</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Downloading</span><span class="pln"> video </span><span class="kwd">info</span><span class="pln"> webpage</span></code></li><li class="L2"><code><span class="pun">[</span><span class="pln">youtube</span><span class="pun">]</span><span class="pln"> j_JgXJ</span><span class="pun">-</span><span class="pln">apXs</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Extracting</span><span class="pln"> video information</span></code></li><li class="L3"><code><span class="pun">[</span><span class="pln">youtube</span><span class="pun">]</span><span class="pln"> j_JgXJ</span><span class="pun">-</span><span class="pln">apXs</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Downloading</span><span class="pln"> MPD manifest</span></code></li><li class="L4"><code><span class="pun">[</span><span class="pln">download</span><span class="pun">]</span><span class="pln"> </span><span class="typ">Destination</span><span class="pun">:</span><span class="pln"> B</span><span class="pun">.</span><span class="pln">A</span><span class="pun">.</span><span class="pln"> PASS </span><span class="lit">2</span><span class="pln"> </span><span class="typ">Trailer</span><span class="pln"> </span><span class="kwd">no</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> _ </span><span class="typ">Filmybox</span><span class="pun">-</span><span class="pln">j_JgXJ</span><span class="pun">-</span><span class="pln">apXs</span><span class="pun">.</span><span class="pln">mp4</span></code></li><li class="L5"><code><span class="pun">[</span><span class="pln">download</span><span class="pun">]</span><span class="pln"> </span><span class="lit">100</span><span class="pun">%</span><span class="pln"> of </span><span class="lit">6.90MiB</span><span class="pln"> </span><span class="kwd">in</span><span class="pln"> </span><span class="lit">00</span><span class="pun">:</span><span class="lit">47</span></code></li></ol></pre>
+<p>如果你想以 mp3 音频的格式下载 Youtube 视频，也可以做到：</p>
+<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="pln">youtube</span><span class="pun">-</span><span class="pln">dl https</span><span class="pun">:</span><span class="com">//www.youtube.com/watch?v=j_JgXJ-apXs -x --audio-format mp3</span></code></li></ol></pre>
+<p>你也可以下载指定频道中的所有视频，只需要把频道的 URL 放到后面就行，如下所示：</p>
+<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="pln">youtube</span><span class="pun">-</span><span class="pln">dl </span><span class="pun">-</span><span class="pln">citw https</span><span class="pun">:</span><span class="com">//www.youtube.com/channel/UCatfiM69M9ZnNhOzy0jZ41A</span></code></li></ol></pre>
+<p>若你的网络需要通过代理，那么可以使用 <code>--proxy</code> 来下载视频：</p>
+<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="pln">youtube</span><span class="pun">-</span><span class="pln">dl </span><span class="pun">--</span><span class="pln">proxy http</span><span class="pun">:</span><span class="com">//proxy-ip:port https://www.youtube.com/watch?v=j_JgXJ-apXs</span></code></li></ol></pre>
+<p>若想一条命令下载多个 Youtube 视频，那么首先把所有要下载的 Youtube 视频 URL 存在一个文件中（假设这个文件叫 <code>youtube-list.txt</code>），然后运行下面命令：</p>
+<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="pln">youtube</span><span class="pun">-</span><span class="pln">dl </span><span class="pun">-</span><span class="pln">a youtube</span><span class="pun">-</span><span class="kwd">list</span><span class="pun">.</span><span class="pln">txt</span></code></li></ol></pre>
+<h3 id="toc_4">安装 Youtube-dl GUI</h3>
+<p>若你想要图形化的界面，那么 <code>youtube-dlg</code> 是你最好的选择。<code>youtube-dlg</code> 是一款由 wxPython 所写的免费而开源的 <code>youtube-dl</code> 界面。</p>
+<p>该工具默认也不在 Ubuntu 16.04 仓库中。因此你需要为它添加 PPA。</p>
+<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="kwd">sudo</span><span class="pln"> add</span><span class="pun">-</span><span class="pln">apt</span><span class="pun">-</span><span class="pln">repository ppa</span><span class="pun">:</span><span class="pln">nilarimogard</span><span class="pun">/</span><span class="pln">webupd8</span></code></li></ol></pre>
+<p>下一步，更新软件包仓库并安装 <code>youtube-dlg</code>：</p>
+<pre class="prettyprint linenums prettyprinted" style=""><ol class="linenums"><li class="L0"><code><span class="kwd">sudo</span><span class="pln"> </span><span class="kwd">apt-get</span><span class="pln"> update </span><span class="pun">-</span><span class="pln">y</span></code></li><li class="L1"><code><span class="kwd">sudo</span><span class="pln"> </span><span class="kwd">apt-get</span><span class="pln"> install youtube</span><span class="pun">-</span><span class="pln">dlg </span><span class="pun">-</span><span class="pln">y</span></code></li></ol></pre>
+<p>安装好 Youtube-dl 后，就能在 Unity Dash 中启动它了：</p>
+<p class="article_img"><img src="./分享_在 Ubuntu 上安装并使用 YouTube-DL_files/231051zjpc8pzpjv07vj0a.png" alt=""></p>
+<p class="article_img"><img src="./分享_在 Ubuntu 上安装并使用 YouTube-DL_files/231051k7qyv7d7fdl7nolm.png" alt=""></p>
+<p>现在你只需要将 URL 粘贴到上图中的 URL 域就能下载视频了。Youtube-dlg 对于那些不太懂命令行的人来说很有用。</p>
+<h3 id="toc_5">结语</h3>
+<p>恭喜你！你已经成功地在 Ubuntu 16.04 服务器上安装好了 youtube-dl 和 youtube-dlg。你可以很方便地从 Youtube 及任何 youtube-dl 支持的网站上以任何格式和任何大小下载视频了。</p>
+<hr>
+<p>via: <a href="https://www.howtoforge.com/tutorial/install-and-use-youtube-dl-on-ubuntu-1604/" class="ext" rel="external nofollow" target="_blank">https://www.howtoforge.com/tutorial/install-and-use-youtube-dl-on-ubuntu-1604/</a></p>
+<p>作者：<a href="https://www.howtoforge.com/" class="ext" rel="external nofollow" target="_blank">Hitesh Jethva</a> 译者：<a href="https://github.com/lujun9972" class="ext" rel="external nofollow" target="_blank">lujun9972</a> 校对：<a href="https://github.com/wxy" class="ext" rel="external nofollow" target="_blank">wxy</a></p>
+<p>本文由 <a href="https://github.com/LCTT/TranslateProject" class="ext" rel="external nofollow" target="_blank">LCTT</a> 原创编译，<a href="https://linux.cn/article-9244-1.html">Linux中国</a> 荣誉推出</p>  					<section><img style="width:24px;height: 24px;float: right;" src="./分享_在 Ubuntu 上安装并使用 YouTube-DL_files/linisi.svg"><br class="clear"></section>
+</div>
+</div>
+<br class="clear">
+<div class="vw">
+<div id="add_comment" class="h bm" style="display: none;">
+<div class="bm_h cl">
+<h3>发表评论</h3>
+</div>
+<div class="bm_c pbn">
+<form id="cform" name="cform" action="https://linux.cn/portal.php?mod=portalcp&amp;ac=comment" method="post" autocomplete="off">
+<div class="tedt">
+<div class="area">
+<textarea name="message" rows="10" class="pt" id="message" onkeydown="ctrlEnter(event, &#39;commentsubmit_btn&#39;);"></textarea>
+</div>
+</div>
+
+<div class="mtm z"><span id="seccode_cSPjMyJw"><input name="seccodehash" type="hidden" value="cSPjMyJw"><input name="seccodemodid" type="hidden" value="portal::view">验证码 <span id="seccodecSPjMyJw" onclick="showMenu(this.id);"><input name="seccodeverify" id="seccodeverify_cSPjMyJw" type="text" autocomplete="off" style="ime-mode:disabled;width:100px" class="txt px vm" onblur="checksec(&#39;code&#39;, &#39;cSPjMyJw&#39;, 0, null, &#39;portal::view&#39;)"> <a href="javascript:;" onclick="updateseccode(&#39;cSPjMyJw&#39;);doane(event);" class="xi2">换一个</a><span id="checkseccodeverify_cSPjMyJw"><img id="checksec_none_cSPjMyJw" src="./分享_在 Ubuntu 上安装并使用 YouTube-DL_files/none.gif" width="16" height="16" class="vm"></span></span><div id="seccodecSPjMyJw_menu" class="p_pop p_opt" style="display:none"><span id="vseccode_cSPjMyJw">输入下图中的字符<br><img onclick="updateseccode(&#39;cSPjMyJw&#39;)" width="100" height="40" src="./分享_在 Ubuntu 上安装并使用 YouTube-DL_files/misc(1).php" class="vm" alt=""></span></div></span>		
+<script type="text/javascript" reload="1">updateseccode('cSPjMyJw', '<sec> <span id="sec<hash>" onclick="showMenu(this.id);"><sec></span><div id="sec<hash>_menu" class="p_pop p_opt" style="display:none"><sec></div>', 'portal::view');</script>
+<script type="text/javascript">
+(function($){
+$("#cform").submit(function(e) {
+if ($("#checksec_none_cSPjMyJw").length>0) {
+alert("请输入验证码");
+return false;
+} else if ($("#checksec_error_cSPjMyJw").length>0) {
+alert("验证码输入错误，请重新输入");
+return false;
+} else if ($("#checksec_loading_cSPjMyJw").length>0) {
+alert("验证码验证中……");
+return false;
+}
+});
+})(jQuery);
+</script>
+</div>
+<input type="hidden" name="portal_referer" value="https://linux.cn/article-9244-1.html#comment">
+<input type="hidden" name="referer" value="https://linux.cn/article-9244-1.html#comment">
+<input type="hidden" name="id" value="0">
+<input type="hidden" name="idtype" value="">
+<input type="hidden" name="aid" value="9244">
+<input id="reppid" type="hidden" name="reppid" value="">
+<input type="hidden" name="formhash" value="0093daf4">
+<input type="hidden" name="replysubmit" value="true">
+<input type="hidden" name="commentsubmit" value="true">
+<p class="mtm" style="text-align: center;"><button type="submit" name="commentsubmit_btn" id="commentsubmit_btn" value="true" class="pn"><strong>评论</strong></button></p>
+<br class="clear">
+</form>
+</div>
+</div>
+<div id="comment" class="bm h">
+<div class="bm_h cl">
+<h3 class="z"><a name="comment"></a>最新评论</h3>
+</div>
+<div id="comment_ul" class="bm_c">
+<div style="text-align: center;"><button type="button" class="pnc" style="font-size: 24px;width: 160px;" id="c_add" onclick="showWindow(this.id, &#39;portal.php?mod=portalcp&amp;ac=comment&amp;op=new&amp;aid=9244&#39;, &#39;get&#39;, 0);"><strong>发表评论</strong></button></div></div>
+</div>
+</div>
+<div class="h bm_c bm z" id="footer_info">
+<p class="copyright">
+    	 
+    		    			    			<span class="z textcut">译自：<a href="https://www.howtoforge.com/tutorial/install-and-use-youtube-dl-on-ubuntu-1604/" target="_blank">howtoforge.com</a></span>
+    			    		    		<span class="y">作者： Hitesh Jethva</span>    		<br class="clear">
+    	    	<span class="z">原创：<a href="https://linux.cn/lctt/" target="_blank">LCTT</a> <a href="https://linux.cn/article-9244-1.html" target="_blank">https://linux.cn/article-9244-1.html</a></span>
+            			<span class="y">译者： DarkSun</span>    		<br class="clear">
+    	    	<br>
+    	    		<span>本文由 LCTT 原创翻译，<a href="https://linux.cn/article-9244-1.html">Linux 中国首发</a>。也想加入译者行列，为开源做一些自己的贡献么？欢迎加入 <a href="https://linux.cn/lctt/" target="_blank">LCTT</a>！<br>翻译工作和译文发表仅用于学习和交流目的，翻译工作遵照 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank">CC-BY-SA 协议规定</a>，如果我们的工作有侵犯到您的权益，请及时联系我们。</span>
+    		    		<br class="clear">
+    		<span style="color:red;">欢迎遵照 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank">CC-BY-SA 协议规定</a> 转载，敬请在正文中标注并保留原文/译文链接和作者/译者等信息。</span>
+                		<br class="clear">
+    	    	<span>文章仅代表作者的知识和看法，如有不同观点，请楼下排队<a href="javascript:void(0);" onclick="$(&#39;message&#39;).focus();">吐槽</a> :D</span>
+    	<br class="clear">
+</p>
+
+
+
+<div class="o cl ptm pbm">
+<a href="https://linux.cn/home.php?mod=spacecp&amp;ac=favorite&amp;type=article&amp;id=9244&amp;handlekey=favoritearticlehk_9244" id="a_favorite" onclick="showWindow(this.id, this.href, &#39;get&#39;, 0);" class="favorite z" title="收藏"></a>
+<!-- <a href="misc.php?mod=invite&amp;action=article&amp;id=9244" id="a_invite" onclick="showWindow('invite', this.href, 'get', 0);" class="invite z" title="邀请"></a> -->
+<a href="https://linux.cn/article-9244-1.html?pr" class="print z" title="打印"></a>
+				
+</div>
+<div class="pren pbm cl">
+<em>上一篇：<a href="https://linux.cn/article-9234-1.html">Pick：一款 Linux 上的命令行模糊搜索工具</a></em><em>下一篇：<a href="https://linux.cn/article-9245-1.html">匿名上网：学习在 Linux 上安装 TOR 网络</a></em></div>
+</div>
+<div><div id="translator_info" class="bm" style="position: relative;margin: 8px 4px 8px 0 !important;float: right;">
+<div class="bm_h cl">
+LCTT 译者
+</div>
+<div class="bm_c">
+<div>
+<a href="https://linux.cn/lctt/lujun9972" target="_blank"><img class="avatar" src="./分享_在 Ubuntu 上安装并使用 YouTube-DL_files/6605174" style="max-width: 64px; float: left;margin-top: 10px;"></a>
+<div style="float: left;margin-left: 10px;font-size: 12px;line-height: 1.5em; ">
+<div>
+<a href="https://github.com/lujun9972" target="_blank"><img src="./分享_在 Ubuntu 上安装并使用 YouTube-DL_files/github_icon.png" style="vertical-align:middle;"></a> <a href="https://linux.cn/lctt/lujun9972" target="_blank" style="font-weight: bold;">DarkSun</a> 🌟🌟🌟🌟🌟</div>
+<div class="addfiles">共计翻译： <span class="num" style="color: #f00;font-weight: 700;">117.0</span> 篇
+| 共计贡献： <span class="num" style="color: #f00;font-weight: 700;">1633</span> 天</div>
+<div>贡献时间：2017-11-28 -&gt; 2022-05-19</div><a href="https://linux.cn/lctt/lujun9972" target="_blank">访问我的 LCTT 主页</a> | <a href="https://github.com/lujun9972" target="_blank">在 GitHub 上关注我</a>
+</div>
+<br class="clear">
+</div>
+</div>
+</div>
+</div>
+
+<div id="related" class="bm block z">
+<div class="bm_h cl">
+<h3>相关阅读</h3>
+</div>
+<div class="bm_c pbn" id="related_tag">
+<ul class="xl xl2 cl bbs pbm" id="tag"><li><a href="https://linux.cn/tag-%E4%B8%8B%E8%BD%BD.html">下载</a></li>
+<li><a href="https://linux.cn/tag-youtube-dl.html">youtube-dl</a></li>
+</ul>
+</div>
+<div class="bm_c xl xl1 cl" id="related_article">
+<ul><li><em>2018-05-25</em><a href="https://linux.cn/article-9678-1-rel.html" target="_blank">You-Get：支持 80 多个网站的命令行多媒体下载器</a> </li>
+<li><em>2020-10-26</em><a href="https://linux.cn/article-12758-1-rel.html" target="_blank">当 DMCA 被滥用，工具又该何去何从？</a> </li>
+<li><em>2020-11-08</em><a href="https://linux.cn/article-12802-1-rel.html" target="_blank">EFF 认为 RIAA 正在“滥用 DMCA”来关闭 YouTube-DL</a> </li>
+<li><em>2020-11-17</em><a href="https://linux.cn/article-12832-1-rel.html" target="_blank">GitHub 恢复 YouTube-DL 项目存储库</a> </li>
+<li><em>2021-02-27</em><a href="https://linux.cn/article-13158-1-rel.html" target="_blank">不习惯在终端使用 youtube-dl？可以使用这些 GUI 应用</a> </li>
+</ul>
+</div>
+</div>
+<br class="clear">
+</article>
+</div>
+
+</div>
+
+
+<input type="hidden" id="portalview" value="1">
+
+<script type="text/javascript">
+(function($){
+$(window).load(function() {
+
+// 文章内插图及注释
+
+var max_width = $("#article_content").width() - 60;
+var imgp = $("#article_content IMG").parents("P");
+imgp.each(function(){
+$(this).addClass("article_img");
+var img = $(this).find("IMG");
+if (img.parent("A").is("A")) {
+img.unwrap();
+}
+// 如果有图片描述
+var desc = null;
+if ((desc = $(this).next("P")) && desc && desc.contents() && desc.contents().first().is("EM") ) {
+desc.addClass("article_img_desc");
+desc_txt = desc.contents().first().text();
+img.attr({"title":desc_txt,"alt":desc_txt});
+} else if ((desc = img.next("BR").next("EM")) && desc.text()) {
+var desc_txt = desc.text();
+img.next("BR").remove();
+img.next("EM").remove();
+$(this).after("<p class='article_img_desc'><em>" + desc_txt + "</em></p>");
+} else {
+var desc_txt = img.attr("alt") || img.attr("title");
+if (desc_txt != '' && typeof desc_txt != 'undefined') {
+$(this).after("<p class='article_img_desc'><em>" + desc_txt + "</em></p>");
+}
+}
+if (img.attr("width") > max_width) {
+img.attr("width",'');
+img.attr("height",'');
+img.css("cursor","pointer");
+img.click(function(){window.open(img.attr("src"));});
+} else if (img.width() > max_width) {
+img.css("height",parseInt(img.height() * (max_width / img.attr("width"))));
+img.css("width",max_width);
+img.css("cursor","pointer");
+img.click(function(){window.open(img.attr("src"));});
+}
+});
+
+var pre = $("#article_content PRE");
+pre.each(function(){
+// 如果有代码描述
+var desc = null;
+if ((desc = $(this).next("P")) && desc && desc.contents() && desc.contents().first().is("EM") ) {
+desc.addClass("article_img_desc");
+}
+});
+
+// 链接
+var re_sitelink = /^https?:\/\/(www.)?linux(.net)?.cn\//i;
+$("#article_content a").map(function(){
+if ($(this).attr('href') == undefined) {
+$(this).css({'visibility':'hidden'});
+} else if ($(this).attr('href').substr(0,1) == '#') {
+$(this).attr('href','https://linux.cn/article-9244-1.html' + $(this).attr('href'));
+}
+if (re_sitelink.test($(this).attr('href'))) {
+if ($(this).text() == 'Linux中国') $(this).attr('href',$(location).attr('href'));
+} else {
+$(this).addClass("ext").attr({"rel":"external nofollow","target":"_blank"});
+}
+});
+// 链接按钮
+$("blockquote").has("p > strong a").addClass("linkbutton");
+
+// 视频
+$("video").map(function() {
+width = $(this).attr("width");
+height = $(this).attr("height");
+$(this).wrap("<div class='videoContainer'></div>").parent()
+.css({width: width,height : height});
+// 如果有描述
+var desc = null;
+if ((desc = $(this).parents('P').next("P")) && desc && desc.contents() && desc.contents().first().is("EM") ) {
+desc.addClass("article_img_desc");
+}
+});
+$("audio").map(function() {
+// 如果有描述
+var desc = null;
+if ((desc = $(this).parents('P').next("P")) && desc && desc.contents() && desc.contents().first().is("EM") ) {
+desc.addClass("article_img_desc");
+}
+});
+$("#article_content table").map(function() {
+// 如果有表格描述
+var desc = null;
+if ((desc = $(this).next("P")) && desc && desc.contents() && desc.contents().first().is("EM") ) {
+desc.addClass("article_img_desc");
+desc_txt = desc.contents().first().text();
+}
+var page_width = parseInt($("#article_content").css('width')) - 30;
+var width = parseInt($(this).css('width')) + 2;
+if (width > page_width) {
+width = page_width;
+width = width + "px";
+$(this).wrap("<section class='bm'><section style='white-space:nowrap;overflow:scroll;'></section></section>")
+.parent().parent().css('width',width).prepend("<section class='hm bm_h'>&lt; 如显示不全，请左右滑动 &gt;</section>")
+.append("<section class='hm bm_f'></section>");
+}
+});
+$("#article_content table td").map(function() {
+var c = $(this).text();
+if (c.length > 20) $(this).css("white-space","normal");
+
+});
+})
+})(jQuery);
+</script>
+<link rel="stylesheet" href="./分享_在 Ubuntu 上安装并使用 YouTube-DL_files/prettify.css" type="text/css">
+<script src="./分享_在 Ubuntu 上安装并使用 YouTube-DL_files/prettify.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+var sourceBaseUrl = "https://img.linux.net.cn/static/js/tinymce/plugins/prettify";
+prettyPrint();
+</script>
+<script type="text/javascript">
+var getblock_last = 0;
+var related = [];related.push(9678);
+related.push(12758);
+related.push(12802);
+related.push(12832);
+related.push(13158);
+	
+(function($){
+$(window).scroll(function() {
+var load_more_bottom = $('#article_content').offset().top + $('#article_content').height();
+var scrollPos = $(window).scrollTop() + jQuery(window).height();
+var last = Date.parse(new Date())
+if (scrollPos - load_more_bottom > 300 && last - getblock_last > 1000) {
+getblock_last = last
+}
+});
+})(jQuery);
+
+</script>	</div>
+    <div id="footer">
+        <p>
+            <span>Linux 中国 © 2003 - 2022</span>
+        </p>
+        <p>
+            <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备2021020457</a>            京公网安备110105001595
+        </p>
+        <p>
+        <a href="https://linux.cn/legal.html">服务条款</a> |
+        除特别申明外，本站原创内容版权遵循 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" target="_blank">CC-BY-SA 协议规定</a></p>
+        <p>
+</p></div>
+
+<div id="ft" class="cl"></div>
+<script src="./分享_在 Ubuntu 上安装并使用 YouTube-DL_files/home.php" type="text/javascript"></script>
+<div id="scrolltop">
+<span>
+<a href="javascript:void();" class="wxicon" onmouseover="show_qrcode(event,&#39;#qrcode&#39;, SITEURL + &#39;article-9244-1.html?utm_source=weixin&#39;);" onmouseout="show_qrcode(event,&#39;#qrcode&#39;,&#39;&#39;);"></a>
+<a title="分享到微博" href="javascript:void( share_tsina(SITEURL + &#39;article-9244-1.html?utm_source=weibo&#39;,&#39;article_title&#39;,&#39;article_content&#39;,&#39;https://img.linux.net.cn/data/attachment/album/201801/15/231045b3y531loom513ot1.jpg&#39;) );" class="tsina"></a>
+<a title="收藏" href="https://linux.cn/home.php?mod=spacecp&amp;ac=favorite&amp;type=article&amp;id=9244&amp;handlekey=favoritearticlehk_9244" id="a_favorite" onclick="showWindow(this.id, this.href, &#39;get&#39;, 0);" class="favorite"></a>
+    	<a href="https://linux.cn/article-9244-1.html?pr" class="print" title="!print!"></a>
+
+</span>
+<span hidefocus="true"><a title="返回顶部" onclick="window.scrollTo(&#39;0&#39;,&#39;0&#39;)" class="scrolltopa"><b>返回顶部</b></a></span>
+</div>
+<script type="text/javascript">_attachEvent(window, 'scroll', function () { showTopLink(); });</script>
+<div id="qrcode">
+<p>分享到微信</p>
+<div id="canvas"></div>
+<p><em>打开微信，点击顶部的“╋”，<br>
+使用“扫一扫”将网页分享至微信。</em></p></div>
+<!-- script type="text/javascript" src="https://img.linux.net.cn/static/js/ads.js?Eps"></script -->
+<!-- div id="LEpsCisOsS" style="display: none; background-color: #A00; position: fixed; top: 0; width: 100%; z-index: 9999; left: 0; font-size: 16px; color: #fff; text-align: center; padding: 10px; opacity: 0.8;">请将我们加入您的广告过滤器的白名单，请支持开源站点。谢谢您。</div -->
+<script type="text/javascript">
+(function($){
+$(window).load(function() {
+/*if ($('#pleaseRemoveOurSiteFromBlackList').length == 0 && $(window).width() >= 480) {
+$('#LEpsCisOsS').css('display','block');
+}*/
+if (location.href.substr(0,17) != 'https://linux.cn/') {
+location.href = 'https://linux.cn/';
+}
+function roundTopFocus() {
+if ($('.topfocus').length) {
+//var tf1 = $('.topfocus').children().first();
+//$('.topfocus').children().fadeOut('fast',function(){tf1.remove().appendTo($('.topfocus')).fadeIn()}).fadeIn();
+} else if ($('.article_titlead').length) {
+var ad1 = $('.article_titlead').children().first();
+$('.article_titlead').children().fadeOut('slow',function(){ad1.remove().appendTo($('.article_titlead')).fadeIn()}).fadeIn();
+
+}
+}
+setInterval(roundTopFocus, 10000);
+});
+})(jQuery);
+</script>
+
+
+<div><div class="v2-x-web-address"><img title="新加坡" class="v2-x-web-address__code" alt="新加坡" src="chrome-extension://bdclcbikdajogncdpmobifajhbajddap/static/sg.svg" width="22px" height="22px"><a class="v2-x-web-address__ip" target="_blank" title="点击查询地理位置" href="https://ip.lhyhq.cn/?ip=8.210.86.187">8.210.86.187</a><img title="关闭" class="v2-x-web-address__close" alt="关闭" src="chrome-extension://bdclcbikdajogncdpmobifajhbajddap/static/close.svg" width="18px" height="18px"></div></div></body></html>

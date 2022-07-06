@@ -1,0 +1,7 @@
+#！/usr/bin/env python3
+import webbrowser
+import time
+ 
+webbrowser.open("https://linux.cn/article-9244-1.html")
+#webbrowser.open("~/my_alias_files/分享_在 Ubuntu 上安装并使用 YouTube-DL.html")
+ 
