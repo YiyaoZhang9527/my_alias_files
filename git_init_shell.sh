@@ -1,6 +1,7 @@
 torch README.md
 torch .gitignore
-echo ".git_init_shell.sh\n.gitignore" >> .gitignore
+echo ".git_init_shell.sh" >> .gitignore
+echo ".gitignore" >> .gitignore
 git init
 git add README.md
 git add .
