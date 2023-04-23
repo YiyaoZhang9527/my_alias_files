@@ -1,2 +1,4 @@
-cd "/home/zhangmanman/Downloads/Clash/Clash.for.Windows-0.19.19-x64-linux (1)/Clash for Windows-0.19.19-x64-linux/"
-./cfw
+cd ~/clash
+echo "start clash for windows "
+./cfw 
+echo "end clash for windows"
